@@ -1,0 +1,12 @@
+Source: trig-function
+Section: utils
+Priority: optional
+Maintainer: Dmitrij Nikolaenko <nikolaenkodmitrij2004@gmail.com>
+Build-Depends: debhelper-compat (= 9), g++
+Standards-Version: 4.5.1
+
+Package: trig-function
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Trigonometric function calculation program
+  Implementation of arctangent series calculation.

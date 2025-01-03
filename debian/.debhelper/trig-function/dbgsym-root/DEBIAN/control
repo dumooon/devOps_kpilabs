@@ -1,0 +1,13 @@
+Package: trig-function-dbgsym
+Package-Type: ddeb
+Source: trig-function
+Version: 1.0-1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Dmitrij Nikolaenko <nikolaenkodmitrij2004@gmail.com>
+Installed-Size: 29
+Depends: trig-function (= 1.0-1)
+Section: debug
+Priority: optional
+Description: debug symbols for trig-function
+Build-Ids: 0d368cce766614ac5f9267d82f18da78a2e1f0f5

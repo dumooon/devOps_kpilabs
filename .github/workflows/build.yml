@@ -2,9 +2,9 @@ name: C/C++ CI
 
 on:
   push:
-    branches: ["branchAutomake"]
+    branches: ["branchAutoPackage"]
   pull_request:
-    branches: ["branchAutomake"]
+    branches: ["branchAutoPackage"]
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y g++ make automake autoconf libtool pkg-config
+          sudo apt-get install -y g++ make automake autoconf libtool pkg-config debhelper devscripts build-essential
       - name: Build Program with Automake
         run: |
           ./configure
@@ -24,11 +24,12 @@ jobs:
       - name: make
         run: make
 
-      - name: Create distribution
-        run: make dist
+      - name: Build Debian Package
+        run: |
+          dpkg-buildpackage -us -uc
 
-      - name: Upload tarball
+      - name: Upload Debian Package
         uses: actions/upload-artifact@v4
         with:
-          name: trig_function-dist
-          path: trig_function-*.tar.gz
+          name: trig-function-package
+          path: ../trig-function_*.deb
