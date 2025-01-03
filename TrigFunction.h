@@ -1,10 +1,14 @@
+// TrigFunction.h
 #ifndef TRIGFUNCTION_H
 #define TRIGFUNCTION_H
 
 class TrigFunction {
+private:
+    double x;
+
 public:
-    // Function to calculate a trigonometric function, initially returns 0.
-    double FuncA();
+    TrigFunction(double input = 0.0) : x(input) {}
+    double FuncA(int n);  // Updated to include int parameter
 };
 
-#endif // TRIGFUNCTION_H
+#endif
