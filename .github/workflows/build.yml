@@ -2,9 +2,9 @@ name: C/C++ CI
 
 on:
   push:
-    branches: ["branchMake"]
+    branches: ["brachAutomake"]
   pull_request:
-    branches: ["branchMake"]
+    branches: ["brachAutomake"]
 
 jobs:
   build:
@@ -15,7 +15,20 @@ jobs:
       - name: Install build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y g++ make
+          sudo apt-get install -y g++ make automake autoconf libtool pkg-config
+      - name: Build Program with Automake
+        run: |
+          ./configure
+          make
 
       - name: make
         run: make
+
+      - name: Create distribution
+        run: make dist
+
+      - name: Upload tarball
+        uses: actions/upload-artifact@v4
+        with:
+          name: trig_function-dist
+          path: trig_function-*.tar.gz
