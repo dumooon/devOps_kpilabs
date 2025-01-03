@@ -1,7 +1,0 @@
-# debian/changelog
-trig-function (1.0-1) unstable; urgency=medium
-
-  * Initial release
-  * Implements arctangent series calculation
-
- -- Dmitrij Nikolaenko <nikolaenkodmitrij2004@gmail.com>  Wed, 13 Mar 2024 12:00:00 +0300
