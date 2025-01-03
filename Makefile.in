@@ -103,10 +103,12 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_test_main_OBJECTS = test_main.$(OBJEXT) TrigFunction.$(OBJEXT)
+am_test_main_OBJECTS = test_main.$(OBJEXT) TrigFunction.$(OBJEXT) \
+	HTTP_Server.$(OBJEXT)
 test_main_OBJECTS = $(am_test_main_OBJECTS)
 test_main_LDADD = $(LDADD)
-am_trig_function_OBJECTS = main.$(OBJEXT) TrigFunction.$(OBJEXT)
+am_trig_function_OBJECTS = main.$(OBJEXT) TrigFunction.$(OBJEXT) \
+	HTTP_Server.$(OBJEXT)
 trig_function_OBJECTS = $(am_trig_function_OBJECTS)
 trig_function_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
@@ -124,7 +126,8 @@ am__v_at_1 =
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__maybe_remake_depfiles = depfiles
-am__depfiles_remade = ./$(DEPDIR)/TrigFunction.Po ./$(DEPDIR)/main.Po \
+am__depfiles_remade = ./$(DEPDIR)/HTTP_Server.Po \
+	./$(DEPDIR)/TrigFunction.Po ./$(DEPDIR)/main.Po \
 	./$(DEPDIR)/test_main.Po
 am__mv = mv -f
 CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
@@ -287,8 +290,8 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-trig_function_SOURCES = main.cpp TrigFunction.cpp TrigFunction.h
-test_main_SOURCES = test_main.cpp TrigFunction.cpp TrigFunction.h
+trig_function_SOURCES = main.cpp TrigFunction.cpp TrigFunction.h HTTP_Server.cpp HTTP_Server.h
+test_main_SOURCES = test_main.cpp TrigFunction.cpp TrigFunction.h HTTP_Server.cpp HTTP_Server.h
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 
@@ -402,6 +405,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/HTTP_Server.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TrigFunction.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_main.Po@am__quote@ # am--include-marker
@@ -701,7 +705,8 @@ clean-am: clean-binPROGRAMS clean-checkPROGRAMS clean-generic \
 
 distclean: distclean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
-		-rm -f ./$(DEPDIR)/TrigFunction.Po
+		-rm -f ./$(DEPDIR)/HTTP_Server.Po
+	-rm -f ./$(DEPDIR)/TrigFunction.Po
 	-rm -f ./$(DEPDIR)/main.Po
 	-rm -f ./$(DEPDIR)/test_main.Po
 	-rm -f Makefile
@@ -751,7 +756,8 @@ installcheck-am:
 maintainer-clean: maintainer-clean-am
 	-rm -f $(am__CONFIG_DISTCLEAN_FILES)
 	-rm -rf $(top_srcdir)/autom4te.cache
-		-rm -f ./$(DEPDIR)/TrigFunction.Po
+		-rm -f ./$(DEPDIR)/HTTP_Server.Po
+	-rm -f ./$(DEPDIR)/TrigFunction.Po
 	-rm -f ./$(DEPDIR)/main.Po
 	-rm -f ./$(DEPDIR)/test_main.Po
 	-rm -f Makefile

@@ -1,12 +1,11 @@
 // main.cpp
 #include "TrigFunction.h"
 #include <iostream>
+#include "HTTP_Server.h"
 
 int main() {
-    static const double x = 0.5;
-    static const int n = 10;
     
-    TrigFunction trigFunc(x);
-    std::cout << "Result of FuncA: " << trigFunc.FuncA(n) << std::endl;
+    std::cout << "Starting HTTP server on port 8081..." << std::endl;
+    CreateHTTPserver();
     return 0;
 }
